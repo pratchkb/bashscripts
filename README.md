@@ -1,2 +1,2 @@
 # bashscripts
-bashscripts written for NEWTON-X (Interface to COLUMBUS, GAUSSIAN and BAGEL)
+bashscripts written for data analysis in NEWTON-X (Interface to COLUMBUS, GAUSSIAN and BAGEL)
