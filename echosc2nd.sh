@@ -1,0 +1,30 @@
+#!/bin/bash
+
+echo -e '  ]'
+echo -e '},'
+echo -e '{'
+echo -e '  "title" : "casscf",'
+echo -e '  "nstate" : 3,'
+echo -e '  "nact" : 9,'
+echo -e '  "nclosed" : 23,'
+echo -e '  "active" : [20, 24, 25, 27, 28, 29, 30, 32, 36],'
+echo -e '  "maxiter" : 200'
+echo -e '},'
+echo -e '{'
+echo -e '  "title" : "print",'
+echo -e '  "file" : "uracil-xms-caspt2-12-9-imag.molden",'
+echo -e '  "orbitals" : true'
+echo -e '},'
+echo -e '{' 
+echo -e '  "title" : "smith",'
+echo -e '  "method" : "caspt2",'
+echo -e '  "ms" : true,'
+echo -e '  "xms" : true,'
+echo -e '  "sssr" : true,'
+echo -e '  "shift" : 0.2,'
+echo -e '  "shift_imag" : true'
+echo -e '}'
+echo -e ']}'
+
+
+
