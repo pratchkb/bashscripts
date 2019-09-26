@@ -16,17 +16,19 @@ rm -rf new.dat av.dat time.dat
 
 #rm -rf lessthan*.dat greaterthan*.dat
 
-echo -n "Number of Trajectories?    "
+read -p "Number of Trajectories?    " TRAJ
 
-read TRAJ
+read -p "Maximum time(fs) of a trajectory?    " timelim
 
-echo -n "Maximum time(fs) of a trajectory?    "
+read -p "Which internal coordinate are you interested in?  " intcoord
 
-read time
+column=$[ $intcoord + 2 ]
+
+echo -e "We are using column $column" 
 
 awk '{print $1}' mean_value.3 > time.dat
 
-for j in `seq 0.00 0.50 $time`
+for j in `seq 0.00 0.50 $timelim`
 
 do
 		 
@@ -40,7 +42,7 @@ done
                 
 paste time.dat av1.dat | column -s $'\t' -t >> ltc5c6.dat
 
-for i in `seq 0.00 0.50 $time`
+for i in `seq 0.00 0.50 $timelim`
 
 do
 
