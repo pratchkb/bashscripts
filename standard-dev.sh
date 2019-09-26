@@ -15,7 +15,7 @@ echo "**************************************************************************
 
 rm -rf time.dat each_val_*.dat all_diff* sq_diff*
 
-read -p "Maximum time(fs) of a trajectory?    "  time
+read -p "Maximum time(fs) of a trajectory?    "  timlim
 
 read -p "Which internal coordinate are you interested in?  " intcoord
 
@@ -31,12 +31,12 @@ echo -e "This may take some time. Your patience is appreciated. :)"
 
 #Make time file
 
-for i in `seq 0.00 0.50 $time`; do echo $i >> time.dat; done
+for i in `seq 0.00 0.50 $timlim`; do echo $i >> time.dat; done
 
 
 #Collect the averages in file av-check-$intcoord-$file and time and average in check-$intcoord-$file
 
-for j in `seq 0.00 0.50 $time`
+for j in `seq 0.00 0.50 $timlim`
 
 do
 		 
@@ -59,7 +59,7 @@ paste av-check-$intcoord-$file time.dat | column -s $'\t' -t >> check-$intcoord-
 #Collect the standard deviations and add it to the avg-stdev-$intcoord-$file file along with time and averages 
 #Columns in avg-stdev-$intcoord-$file: $1-Time(fs), $2-Average(Angstrom), $3-Standard Deviation
 
-for k in `seq 0.00 0.50 $time`
+for k in `seq 0.00 0.50 $timlim`
 
 do
                 grep " $k "  $file | awk -v column=${column} '{print $column}' >> each_val_$k.dat
