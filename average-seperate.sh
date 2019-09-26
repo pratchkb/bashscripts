@@ -8,13 +8,9 @@ echo "                 Author: Pratip Chakraborty                           "
 echo "Check out standard-dev.sh. It calculates both average and standard deviation."
 echo "*****************************************************************************"
 
-rm -rf TRAJ-*
-
 rm -rf int-coord*
 
-rm -rf new.dat av.dat time.dat
-
-#rm -rf lessthan*.dat greaterthan*.dat
+rm -rf new.dat av.dat time.dat lt.dat gt.dat
 
 read -p "Number of Trajectories?    " TRAJ
 
