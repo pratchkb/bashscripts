@@ -32,29 +32,29 @@ for j in `seq 0.00 0.50 $timelim`
 
 do
 		 
-		sumtotal_time_j=$(grep " $j "  lessthan.dat | awk '{print $8}' | awk '{ sum += $1; } END { print sum; }')
+		sumtotal_time_j=$(grep " $j "  lessthan.dat | awk -v column=${column} '{print $column}' | awk '{ sum += $1; } END { print sum; }')
 
-		no_traj_available_j=$(grep " $j "  lessthan.dat | awk '{print $8}' | wc -l)
+		no_traj_available_j=$(grep " $j "  lessthan.dat | awk -v column=${column} '{print $column}' | wc -l)
 
 		echo $sumtotal_time_j $no_traj_available_j | awk '{print $1/$2}' >> av1.dat
 
 done
                 
-paste time.dat av1.dat | column -s $'\t' -t >> ltc5c6.dat
+paste time.dat av1.dat | column -s $'\t' -t >> lt.dat
 
 for i in `seq 0.00 0.50 $timelim`
 
 do
 
-                sumtotal_time_i=$(grep " $i "  greaterthan.dat | awk '{print $8}' | awk '{ sum += $1; } END { print sum; }')
+                sumtotal_time_i=$(grep " $i "  greaterthan.dat | awk -v column=${column} '{print $column}' | awk '{ sum += $1; } END { print sum; }')
 
-                no_traj_available_i=$(grep " $i "  greaterthan.dat | awk '{print $8}' | wc -l)
+                no_traj_available_i=$(grep " $i "  greaterthan.dat | awk -v column=${column} '{print $column}' | wc -l)
 
                 echo $sumtotal_time_i $no_traj_available_i | awk '{print $1/$2}' >> avg1.dat
 
 done
 
-paste time.dat avg1.dat | column -s $'\t' -t >> gtc5c6.dat
+paste time.dat avg1.dat | column -s $'\t' -t >> gt.dat
 
 rm -rf av*.dat
 
