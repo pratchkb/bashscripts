@@ -1,11 +1,12 @@
 #!/bin/bash
 
-echo "**********************************************************************"
+echo "**************************************************************************** "
 echo ""
 echo "  Calculating ensemble average from lessthan.dat and greaterthan.dat  "
 echo "              file for the total simulation window                    "
 echo "                 Author: Pratip Chakraborty                           "
-echo "***********************************************************************"
+echo "Check out Standard-dev.sh. It calculates both average and standard deviation."
+echo "*****************************************************************************"
 
 rm -rf TRAJ-*
 
