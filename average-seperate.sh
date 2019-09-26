@@ -2,9 +2,9 @@
 
 echo "**********************************************************************"
 echo ""
-echo " Getting average from lessthan.dat and greaterthan.dat"
-echo " for all time - Written by Pratt"
-echo ""
+echo "  Calculating ensemble average from lessthan.dat and greaterthan.dat  "
+echo "              file for the total simulation window                    "
+echo "                 Author: Pratip Chakraborty                           "
 echo "***********************************************************************"
 
 rm -rf TRAJ-*
