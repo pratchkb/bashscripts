@@ -2,11 +2,13 @@
 
 echo "********************************************************************************************************"
 echo ""
-echo " Getting average and standard deviation from lessthan.dat/greaterthan.dat "
-echo " for internal coordinates(refer to intcfl file to understand which column "
-echo " represents which internal coordinate) for all time - Written by Pratip Chakraborty"
+echo " Calculating average and standard deviation from lessthan.dat/greaterthan.dat "
+echo "   for internal coordinates(refer to intcfl file to understand which column   "
+echo "      represents which internal coordinate) for total simulation window.      "
 echo ""
-echo " Do not run this script more than once, simultaneously, from different terminals"
+echo "                       Author: Pratip Chakraborty                             "
+echo ""
+echo " Do not run this script more than once, simultaneously, from different terminals. "
 echo ""
 echo "********************************************************************************************************"
 
@@ -19,18 +21,20 @@ read -p "Which internal coordinate are you interested in?  " intcoord
 
 column=$[ $intcoord + 2 ]
 
-echo "We are using column $column" 
+echo -e "We are using column $column" 
 
 read -p "What is the file? lessthan.dat or greaterthan.dat?  " file
 
-echo "We are using $file"
+echo -e "We are using $file"
+
+echo -e "This may take some time. Your patience is appreciated. :)"
 
 #Make time file
 
 for i in `seq 0.00 0.50 $time`; do echo $i >> time.dat; done
 
 
-#Get the averages in file av-check-$intcoord-$file and time and average in check-$intcoord-$file
+#Collect the averages in file av-check-$intcoord-$file and time and average in check-$intcoord-$file
 
 for j in `seq 0.00 0.50 $time`
 
@@ -52,7 +56,7 @@ paste av-check-$intcoord-$file time.dat | column -s $'\t' -t >> check-$intcoord-
 
 
 
-#Get the standard deviations and add it to the avg-stdev-$intcoord-$file file along with time and averages 
+#Collect the standard deviations and add it to the avg-stdev-$intcoord-$file file along with time and averages 
 #Columns in avg-stdev-$intcoord-$file: $1-Time(fs), $2-Average(Angstrom), $3-Standard Deviation
 
 for k in `seq 0.00 0.50 $time`
