@@ -26,6 +26,8 @@ column=$[ $intcoord + 2 ]
 
 echo -e "We are using column $column" 
 
+echo -e "This may take some time. Your patience is appreciated. :)"
+
 awk '{print $1}' mean_value.3 > time.dat
 
 for j in `seq 0.00 0.50 $timelim`
